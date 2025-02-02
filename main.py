@@ -51,16 +51,32 @@ def go(config: DictConfig):
             )
 
         if "basic_cleaning" in active_steps:
-            ##################
-            # Implement here #
-            ##################
-            pass
+            _ = mlflow.run(
+                os.path.join(hydra.utils.get_original_cwd(), "src", "basic_cleaning"),  # Path to the basic_cleaning folder
+                "main",  
+                parameters={
+            "input_artifact": "sample.csv:latest",  # Input artifact to clean
+            "output_artifact": "clean_sample.csv",  # Output cleaned artifact
+            "output_type": "clean_sample",  # Type of output artifact
+            "output_description": "Data with outliers and null values removed",  # Description of output data
+            "min_price": config['etl']['min_price'],  # Minimum price filter
+            "max_price": config['etl']['max_price'],  # Maximum price filter
+        },
+    )
 
-        if "data_check" in active_steps:
-            ##################
-            # Implement here #
-            ##################
-            pass
+        if "data_check" in active_steps:gmai
+           _ = mlflow.run(
+           _ = mlflow.run(
+                os.path.join(hydra.utils.get_original_cwd(), "src", "data_check"),
+                "main",
+                 parameters={
+            "csv": "clean_sample.csv:latest",  # Input artifact (cleaned data)
+            "ref": "clean_sample.csv:latest",  # Reference dataset (same cleaned data in this case)
+            "kl_threshold": config["data_check"]["kl_threshold"],  # Threshold for KL divergence
+            "min_price": config['etl']['min_price'],  # Minimum price filter
+            "max_price": config['etl']['max_price']  # Maximum price filter
+        },
+    )
 
         if "data_split" in active_steps:
             ##################
