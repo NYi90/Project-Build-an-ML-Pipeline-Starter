@@ -179,3 +179,6 @@ Please, make sure all steps are using **the same** python version and that you h
 ## License
 
 [License](LICENSE.txt)
+
+## Wandb Link
+https://wandb.ai/nicoleamap-western-governors-university/nyc_airbnb?nw=nwusernicoleamap
