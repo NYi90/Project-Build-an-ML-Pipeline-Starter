@@ -180,5 +180,7 @@ Please, make sure all steps are using **the same** python version and that you h
 
 [License](LICENSE.txt)
 
-## Wandb Link
-https://wandb.ai/nicoleamap-western-governors-university/nyc_airbnb?nw=nwusernicoleamap
+## Links
+- Wandb: https://wandb.ai/nicoleamap-western-governors-university/nyc_airbnb?nw=nwusernicoleamap
+- Github repo: https://github.com/NYi90/Project-Build-an-ML-Pipeline-Starter
+- Releases: https://github.com/NYi90/Project-Build-an-ML-Pipeline-Starter/releases/tag/1.0.0
